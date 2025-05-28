@@ -45,7 +45,13 @@ function App() {
         </div>
       )}
       {view === 'map' && <MapSelector onSelect={(lat, lon) => handleAnalyze(lat, lon, 10)} />}
-      {view === 'result' && siteData && <SiteResults data={siteData} onBack={() => setView('form')} />}
+      {view === 'result' && siteData && (
+  <>
+    {console.log("✅ Received siteData:", siteData)}
+    <SiteResults data={siteData} onBack={() => setView('form')} />
+  </>
+)}
+
       {view === 'loading' && <p className="loading">Analyzing...</p>}
     </div>
   );

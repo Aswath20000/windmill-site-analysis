@@ -4,30 +4,32 @@ import './SiteResults.css';
 function SiteResults({ data, onBack }) {
   return (
     <div className="site-results">
-      <h3>Site Analysis Results</h3>
+      <h2>Site Analysis Results</h2>
+
       <div className="result-grid">
-        <div className="result-item">
-          <span>Latitude</span>
+        <div className="result-card">
+          <p className="label">Latitude</p>
           <p>{data.latitude}</p>
         </div>
-        <div className="result-item">
-          <span>Longitude</span>
+        <div className="result-card">
+          <p className="label">Longitude</p>
           <p>{data.longitude}</p>
         </div>
-        <div className="result-item">
-          <span>Wind Speed</span>
+        <div className="result-card">
+          <p className="label">Wind Speed</p>
           <p>{data.averageSpeed} m/s</p>
         </div>
-        <div className="result-item">
-          <span>Consistency</span>
-          <p>{data.consistency}%</p>
+        <div className="result-card">
+          <p className="label">Consistency</p>
+          <p>{data.consistency} %</p>
         </div>
-        <div className="result-item">
-          <span>Viability</span>
+        <div className="result-card wide">
+          <p className="label">Viability</p>
           <p>{data.viability}</p>
         </div>
       </div>
-      <button onClick={onBack}>New Search</button>
+
+      <button className="back-btn" onClick={onBack}>New Search</button>
     </div>
   );
 }
