@@ -1,0 +1,56 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# =========================
+# Node.js dependencies
+# =========================
+**/node_modules/
+**/build/
+**/dist/
+
+# =========================
+# Environment & Secrets
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Logs
+# =========================
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =========================
+# Testing coverage
+# =========================
+coverage/
+
+# =========================
+# Python files
+# =========================
+*.pyc
+*.pyo
+*.pyd
+*.pkl
+__pycache__/
+ml_models/__pycache__/
+ml_models/*.pkl
+
+# =========================
+# OS and editor files
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# =========================
+# React production build
+# =========================
+windmill-frontend/build/
+
+# Misc
+.pnp/
+.pnp.js
