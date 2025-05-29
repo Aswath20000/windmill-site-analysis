@@ -1,76 +1,216 @@
-body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f3f4f6;
+/* App.css */
+.app-container {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-.container {
-  max-width: 1100px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+.wind-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.29;
+  filter: blur(1px);
 }
 
-.title {
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  position: relative;
+}
+
+.app-header {
   text-align: center;
-  font-size: 28px;
-  color: #1a7f37;
-  font-weight: 600;
-  margin-bottom: 30px;
+  margin-bottom: 2.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.app-title {
+  color: #2c5282;
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.app-subtitle {
+  color: #4a5568;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
 }
 
 .card-layout {
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
 }
 
-.card {
-  flex: 1;
-  background: #f9f9f9;
-  border-radius: 10px;
-  padding: 25px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+.info-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card h3 {
-  font-size: 18px;
-  margin-bottom: 15px;
-  color: #1a7f37;
-  display: flex;
-  align-items: center;
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
-.card input {
-  width: 100%;
-  margin-bottom: 15px;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+.card-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
-.card button {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  background-color: #1a7f37;
+.map-selector-btn {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #4299e1, #3182ce);
   color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.card button.secondary {
-  background-color: transparent;
-  border: 1px solid #1a7f37;
-  color: #1a7f37;
-  margin-top: 10px;
+.map-selector-btn:hover {
+  background: linear-gradient(135deg, #3182ce, #2b6cb0);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
 }
 
-.loading {
+/* Loading overlay styles */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.loading-content {
   text-align: center;
-  font-size: 16px;
-  color: #666;
+  max-width: 500px;
+  padding: 2rem;
+}
+
+.wind-animation {
+  position: relative;
+  height: 100px;
+  margin-bottom: 2rem;
+}
+
+.wind-particle {
+  position: absolute;
+  background: #4299e1;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: windFlow 3s infinite linear;
+}
+
+.wind-particle:nth-child(1) {
+  width: 8px;
+  height: 8px;
+  top: 30%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.wind-particle:nth-child(2) {
+  width: 12px;
+  height: 12px;
+  top: 60%;
+  left: 20%;
+  animation-delay: 0.5s;
+}
+
+.wind-particle:nth-child(3) {
+  width: 6px;
+  height: 6px;
+  top: 45%;
+  left: 5%;
+  animation-delay: 1s;
+}
+
+.loading-title {
+  color: #2c5282;
+  margin-bottom: 1rem;
+}
+
+.loading-message {
+  font-size: 1.1rem;
+  color: #4a5568;
+  margin-bottom: 2rem;
+  min-height: 1.5rem;
+}
+
+.progress-container {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.progress-bar {
+  height: 8px;
+  background: #edf2f7;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #4299e1, #38b2ac);
+  animation: progress 2s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+@keyframes windFlow {
+  0% { transform: translateX(0) translateY(0); opacity: 0; }
+  10% { opacity: 0.7; }
+  90% { opacity: 0.7; }
+  100% { transform: translateX(300px) translateY(-20px); opacity: 0; }
+}
+
+@keyframes progress {
+  0% { width: 0; }
+  50% { width: 100%; }
+  100% { width: 0; margin-left: 100%; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .app-title {
+    font-size: 2rem;
+  }
+  
+  .content-wrapper {
+    padding: 1.5rem 1rem;
+  }
+  
+  .card-layout {
+    grid-template-columns: 1fr;
+  }
 }

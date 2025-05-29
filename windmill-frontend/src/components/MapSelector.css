@@ -1,40 +1,99 @@
-.map-selector-wrapper {
+.map-selector-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
   display: flex;
   flex-direction: column;
+  z-index: 1000;
+  backdrop-filter: blur(3px);
+}
+
+.map-header {
+  padding: 1rem 2rem;
+  background: #2c5282;
+  color: white;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 20px;
-  padding: 20px;
+}
+
+.map-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0 1rem;
+  line-height: 1;
+  transition: transform 0.2s;
+}
+
+.close-btn:hover {
+  transform: scale(1.2);
 }
 
 .map-container {
-  height: 500px;
-  width: 100%;
-  max-width: 900px;
-  border-radius: 12px;
+  flex: 1;
+  margin: 1rem;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
 .leaflet-container {
-  height: 100%;
   width: 100%;
-  border-radius: 12px;
+  height: 100%;
+}
+
+.map-footer {
+  padding: 1rem 2rem;
+  background: #2c5282;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.coordinates-display {
+  color: white;
+  font-family: monospace;
+  display: flex;
+  gap: 1rem;
 }
 
 .confirm-btn {
-  padding: 12px 24px;
-  font-size: 16px;
-  background-color: #1a7f37;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #48bb78, #38a169);
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.confirm-btn:hover {
-  background-color: #145c29;
-  transform: scale(1.03);
+.confirm-btn:hover:not(.disabled) {
+  background: linear-gradient(135deg, #38a169, #2f855a);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.confirm-btn.disabled {
+  background: #a0aec0;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* India bounds visual cue */
+.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom {
+  border: 2px solid #4299e1;
 }

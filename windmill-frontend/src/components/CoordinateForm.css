@@ -1,40 +1,85 @@
+/* CoordinateForm.css */
 .coordinate-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 25px;
+  padding-right: 45px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
 }
 
-.coordinate-form .form-group {
-  display: flex;
-  flex-direction: column;
+.coordinate-form:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
-.coordinate-form label {
-  font-size: 14px;
-  margin-bottom: 5px;
-  color: #333;
+.coordinate-form h3 {
+  color: #2c5282;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  text-align: center;
+  border-bottom: 2px solid #ebf8ff;
+  padding-bottom: 10px;
 }
 
-.coordinate-form input {
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 14px;
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
 }
 
 .coordinate-form button {
-  padding: 10px;
-  font-size: 14px;
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  font-weight: bold;
-  background-color: #1a7f37;
+  transition: all 0.3s;
+}
+
+.coordinate-form button:first-of-type {
+  background: linear-gradient(135deg, #4299e1, #3182ce);
   color: white;
 }
 
+.coordinate-form button:first-of-type:hover {
+  background: linear-gradient(135deg, #3182ce, #2b6cb0);
+  transform: translateY(-2px);
+}
+
 .coordinate-form button.secondary {
-  background-color: transparent;
-  border: 1px solid #1a7f37;
-  color: #1a7f37;
+  background: rgba(255, 255, 255, 0.8);
+  color: #4a5568;
+  border: 1px solid #cbd5e0;
+}
+
+.coordinate-form button.secondary:hover {
+  background: white;
+  border-color: #a0aec0;
+  transform: translateY(-2px);
 }

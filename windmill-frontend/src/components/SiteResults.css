@@ -1,30 +1,42 @@
+/* SiteResults.css */
 .site-results {
-  background-color: #fff;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
   padding: 30px;
-  margin: 30px auto;
-  border-radius: 16px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  max-width: 700px;
-  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 1200px;
+  margin: 20px auto;
 }
 
 .site-results h2 {
-  color: #1a7f37;
-  margin-bottom: 20px;
+  color: #2c5282;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  border-bottom: 2px solid #ebf8ff;
+  padding-bottom: 15px;
 }
 
 .result-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  margin: 20px 0;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
 }
 
 .result-card {
-  background-color: #e7fff3;
-  border: 1px solid #1a7f37;
-  border-radius: 12px;
-  padding: 18px;
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.result-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
 .result-card.wide {
@@ -32,22 +44,52 @@
 }
 
 .label {
-  font-weight: bold;
-  color: #1a7f37;
-  margin-bottom: 5px;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.result-card p:not(.label) {
+  font-size: 1.2rem;
+  color: #2d3748;
+  margin: 0;
 }
 
 .back-btn {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #1a7f37;
+  display: block;
+  width: 200px;
+  margin: 30px auto 0;
+  padding: 12px;
+  background: linear-gradient(135deg, #4299e1, #3182ce);
   color: white;
   border: none;
   border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  font-weight: bold;
+  transition: all 0.3s;
 }
 
 .back-btn:hover {
-  background-color: #145c29;
+  background: linear-gradient(135deg, #3182ce, #2b6cb0);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Environmental constraints styling */
+.site-results ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.site-results li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.site-results li strong {
+  color: #2b6cb0;
 }
